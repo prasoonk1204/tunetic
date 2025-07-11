@@ -1,13 +1,13 @@
 # ✅ v0 Work Plan – Tunetic
 
 ## 🗂️ Project Setup & Architecture
-- [ ] Initialize Next.js app with TypeScript
-- [ ] Install Tailwind CSS
-- [ ] Setup folder structure
-- [ ] Configure `.env.local` with:
-  - [ ] MongoDB URI
-  - [ ] Spotify Client ID & Secret
-  - [ ] JWT Secret
+- [x] Initialize Next.js app with JavaScript
+- [x] Install Tailwind CSS
+- [x] Setup folder structure
+- [x] Configure `.env.local` with:
+  - [x] MongoDB URI
+  - [x] Spotify Client ID & Secret
+  - [x] JWT Secret
 - [ ] Allow external images from Spotify (next.config.js)
 
 ## 🔐 Auth Setup

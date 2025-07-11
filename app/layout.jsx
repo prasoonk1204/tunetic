@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
@@ -15,7 +16,10 @@ export default function RootLayout({ children }) {
           defaultTheme="system"
           enableSystem
         >
-          {children}
+          <div className="relative">
+            <Header />
+            <div>{children}</div>
+          </div>
         </ThemeProvider>
       </body>
     </html>
