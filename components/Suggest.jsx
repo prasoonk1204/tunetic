@@ -84,7 +84,7 @@ export default function Suggest({ onSuggest }) {
 
   return (
     <div
-      className="w-full max-w-5xl p-4 bg-white dark:bg-zinc-900/60 rounded-3xl shadow-md relative border border-zinc-200 dark:border-zinc-800/80 transition-all dark:shadow-[inset_0px_-2px_4px_rgba(255,255,255,0.1)]"
+      className="w-full max-w-5xl p-4 bg-white dark:bg-zinc-900/50 rounded-3xl relative border border-zinc-200 dark:border-zinc-800/80 transition-all shadow-lg shadow-zinc-900/10 dark:shadow-zinc-400/20"
       ref={containerRef}
     >
       <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100 mb-2">
