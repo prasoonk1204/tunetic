@@ -35,7 +35,6 @@ body {
   transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-
 @layer utilities {
   .backdrop-blur-md {
     backdrop-filter: blur(12px);
@@ -55,4 +54,36 @@ body {
       transform: translateY(0);
     }
   }
+
+  @keyframes modalEnter {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-modalEnter {
+    animation: modalEnter 0.3s ease-out;
+  }
+
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.35s ease both;
+  }
+  
 }

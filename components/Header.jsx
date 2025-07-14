@@ -1,31 +1,32 @@
 "use client";
 
-import Image from "next/image";
-import ThemeToggle from "./ThemeToggle";
+import { Music2, ChevronDown } from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
-import { useState, useRef, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import ThemeToggle from "./ThemeToggle";
 
-export default function Header() {
+export default function Header({ onOpenSuggest }) {
   const { data: session } = useSession();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const pathname = usePathname(); // Get current path
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <header className="p-4 flex items-center justify-center absolute w-full z-100">
-      <div className="w-full max-w-5xl bg-white/60 dark:bg-black/30 transition-all duration-300 border border-zinc-200 dark:border-zinc-700/60 rounded-3xl backdrop-blur-sm ">
-        <div className="flex items-center justify-between px-4 py-2 sm:py-3">
+    <header className="p-4 flex items-center justify-center fixed w-full top-0 z-[100]">
+      <div className="w-full max-w-8xl bg-white/60 dark:bg-black/30 transition-all duration-300 border border-zinc-200 dark:border-zinc-700/60 rounded-3xl backdrop-blur-sm ">
+        <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center space-x-2">
             <Image
               src="/tuneticlogo.png"
@@ -39,6 +40,16 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-4 relative" ref={dropdownRef}>
+            {pathname !== "/" && pathname !== "/login" && (
+              <button
+                onClick={onOpenSuggest}
+                className="p-2 rounded-full hover:bg-emerald-200/70 dark:hover:bg-emerald-900/40 border border-emerald-400 transition"
+                title="Suggest a song"
+              >
+                <Music2 className="h-5 w-5 text-emerald-600 dark:text-emerald-300" />
+              </button>
+            )}
+
             <ThemeToggle />
 
             {session?.user && (
@@ -58,7 +69,7 @@ export default function Header() {
                 </button>
 
                 {open && (
-                  <div className="w-40 bg-white dark:bg-zinc-950 border dark:border-zinc-800 rounded-xl absolute right-0 mt-2  shadow z-50">
+                  <div className="w-40 bg-white dark:bg-zinc-950 border dark:border-zinc-800 rounded-xl absolute right-0 mt-2 shadow z-50">
                     <div className="px-4 py-2 text-[16px] text-zinc-700 dark:text-zinc-300">
                       @
                       {session.user.username ||
@@ -67,7 +78,7 @@ export default function Header() {
                     <hr className="border-zinc-200 dark:border-zinc-800" />
                     <button
                       onClick={() => signOut()}
-                      className="w-full text-left text-[16px] text-red-500 hover:bg-zinc-100 dark:hover:bg-zinc-900 px-4 py-2  rounded-b-xl"
+                      className="w-full text-left text-[16px] text-red-500 hover:bg-zinc-100 dark:hover:bg-zinc-900 px-4 py-2 rounded-b-xl"
                     >
                       Logout
                     </button>
