@@ -1,5 +1,4 @@
 import "./globals.css";
-import Header from "../components/Header";
 import Providers from "./providers";
 
 export const metadata = {
@@ -10,12 +9,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/tuneticlogo.png" sizes="any" />
+      </head>
       <body className="antialiased">
         <Providers>
-          <div className="relative">
-            <Header />
-            <div>{children}</div>
-          </div>
+          {children}
         </Providers>
       </body>
     </html>

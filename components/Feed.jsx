@@ -4,9 +4,6 @@ import SongCard from "./SongCard";
 export default function Feed({ suggestedSongs }) {
   return (
     <div className="w-full max-w-5xl pb-4 space-y-4">
-      <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
-        Feed
-      </h2>
       {suggestedSongs && suggestedSongs.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 sm:px-4 md:px-0">
           {suggestedSongs.map((song, i) => (

@@ -4,6 +4,7 @@ import { useSession, signIn } from "next-auth/react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Header from "@/components/Header";
 
 export default function LoginPage() {
   const { data: session, status } = useSession();
@@ -21,6 +22,7 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-100/50 via-white to-emerald-200/50 dark:from-zinc-950 dark:via-emerald-600/30 dark:to-zinc-950 px-4">
+      <Header />
       <div className="w-full max-w-[420px] p-8 rounded-4xl backdrop-blur-md bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-700/80 shadow-xl text-center space-y-6">
         <div className="flex justify-center">
           <Image
