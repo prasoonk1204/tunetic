@@ -13,7 +13,7 @@ export async function GET(req, { params }) {
     });
   }
 
-  const songs = await Song.find({ username });
+  const songs = await Song.find({ username }).sort({ createdAt: -1 }).lean();
 
   return new Response(JSON.stringify({ user, songs }), {
     status: 200,

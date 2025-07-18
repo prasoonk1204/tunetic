@@ -42,7 +42,7 @@ export default function UserProfilePage() {
       <Header onOpenSuggest={() => setIsSuggestOpen(true)} />
 
       <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors pt-2 w-full flex flex-col items-center px-4">
-        <div className="max-w-5xl w-full flex flex-col gap-8 z-20 py-24">
+        <div className="max-w-5xl w-full flex flex-col gap-8 z-20 pt-24 pb-10">
           {loading ? (
             <>
               <SkeletonCard variant="profile" />
@@ -68,7 +68,7 @@ export default function UserProfilePage() {
                 </span>
               </Link>
 
-              <div className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/40 backdrop-blur-md shadow-md p-6 sm:p-8 flex flex-col md:flex-row gap-4 justify-between">
+              <div className="rounded-4xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/40 backdrop-blur-md shadow-md p-6 sm:p-8 flex flex-col md:flex-row gap-4 justify-between">
                 <div className="flex items-center gap-4">
                   <Image
                     src={user.image}
@@ -87,7 +87,7 @@ export default function UserProfilePage() {
                   </div>
                 </div>
                 <p className="text-zinc-600 dark:text-zinc-400 text-[16px]">
-                  Total Songs: {songs.length}
+                  Total Songs: <span className="font-semibold">{songs.length}</span>
                 </p>
               </div>
 

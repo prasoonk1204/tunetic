@@ -10,7 +10,7 @@ export async function POST(request) {
 
   if (!session || !session.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }  
+  }
 
   try {
     const body = await request.json();
@@ -50,7 +50,7 @@ export async function POST(request) {
   }
 }
 
-export async function GET() {
+export async function GET(request) {
   const session = await getServerSession(authOptions);
   if (!session || !session.user?.id) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -58,7 +58,20 @@ export async function GET() {
 
   await connectToDB();
 
-  const songs = await Song.find({}).sort({ createdAt: -1 }).lean();
+  const { searchParams } = new URL(request.url);
+  const skip = parseInt(searchParams.get("skip") || "0", 10);
+  const limit = parseInt(searchParams.get("limit") || "12", 10);
 
-  return NextResponse.json(songs, { status: 200 });
+  try {
+    const songs = await Song.find({})
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    return NextResponse.json({ songs }, { status: 200 });
+  } catch (error) {
+    console.error("Failed to fetch songs:", error);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  }
 }
