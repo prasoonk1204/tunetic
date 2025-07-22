@@ -7,12 +7,15 @@ const SongSchema = new mongoose.Schema(
     album: String,
     albumArt: String,
     spotifyUrl: { type: String, required: true },
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "User",
-    },
-    username: { type: String, required: true },
+    suggestedBy: [
+      {
+        userId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+        username: String
+      },
+    ],
   },
   { timestamps: true }
 );

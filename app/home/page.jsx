@@ -90,7 +90,7 @@ export default function Page() {
             />
 
             {loading && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 sm:px-4 md:px-0 w-full mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-8 sm:px-4 md:px-0 w-full mt-4">
                 {[...Array(12)].map((_, i) => (
                   <SkeletonCard key={i} />
                 ))}

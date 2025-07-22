@@ -73,9 +73,7 @@ export default function Header({ onOpenSuggest }) {
                   <div className="w-40 bg-white dark:bg-zinc-950 border dark:border-zinc-800 rounded-xl absolute right-0 mt-2 shadow z-50">
                     <div className="text-[16px] text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900">
                       <Link href={`/user/${session.user.username}`} className="px-4 py-2 block">
-                        @
-                        {session.user.username ||
-                          session.user.name?.split(" ")[0]}
+                        Profile
                       </Link>
                     </div>
 

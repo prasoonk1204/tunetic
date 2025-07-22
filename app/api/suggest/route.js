@@ -21,16 +21,27 @@ export async function POST(request) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    const existing = await Song.findOne({
-      spotifyUrl: body.spotifyUrl,
-      userId: dbUser._id,
-    });
+    let existing = await Song.findOne({ spotifyUrl: body.spotifyUrl });
 
     if (existing) {
-      return NextResponse.json(
-        { error: "You already suggested this song" },
-        { status: 409 }
+      const alreadySuggested = existing.suggestedBy.some(
+        (u) => u.userId.toString() === dbUser._id.toString()
       );
+
+      if (alreadySuggested) {
+        return NextResponse.json(
+          { error: "You already suggested this song" },
+          { status: 409 }
+        );
+      }
+
+      existing.suggestedBy.push({
+        userId: dbUser._id,
+        username: dbUser.username,
+      });
+
+      await existing.save();
+      return NextResponse.json(existing, { status: 200 });
     }
 
     const newSong = await Song.create({
@@ -39,8 +50,12 @@ export async function POST(request) {
       albumArt: body.albumArt,
       artists: body.artists,
       spotifyUrl: body.spotifyUrl,
-      userId: dbUser._id,
-      username: dbUser.username,
+      suggestedBy: [
+        {
+          userId: dbUser._id,
+          username: dbUser.username,
+        },
+      ],
     });
 
     return NextResponse.json(newSong, { status: 201 });
@@ -49,6 +64,7 @@ export async function POST(request) {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
+
 
 export async function GET(request) {
   const session = await getServerSession(authOptions);
@@ -64,7 +80,7 @@ export async function GET(request) {
 
   try {
     const songs = await Song.find({})
-      .sort({ createdAt: -1 })
+      .sort({ updatedAt: -1 })
       .skip(skip)
       .limit(limit)
       .lean();

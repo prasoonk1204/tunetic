@@ -46,7 +46,7 @@ export default function UserProfilePage() {
           {loading ? (
             <>
               <SkeletonCard variant="profile" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-8 sm:px-4 md:px-0">
                 {Array(3)
                   .fill(0)
                   .map((_, i) => (
@@ -68,7 +68,7 @@ export default function UserProfilePage() {
                 </span>
               </Link>
 
-              <div className="rounded-4xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/40 backdrop-blur-md shadow-md p-6 sm:p-8 flex flex-col md:flex-row gap-4 justify-between">
+              <div className="rounded-4xl border border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/40 backdrop-blur-md shadow-md p-6 sm:p-8 flex flex-col sm:flex-row gap-4 justify-between">
                 <div className="flex items-center gap-4">
                   <Image
                     src={user.image}
@@ -87,7 +87,8 @@ export default function UserProfilePage() {
                   </div>
                 </div>
                 <p className="text-zinc-600 dark:text-zinc-400 text-[16px]">
-                  Total Songs: <span className="font-semibold">{songs.length}</span>
+                  Total Songs Suggested:{" "}
+                  <span className="font-semibold">{songs.length}</span>
                 </p>
               </div>
 
@@ -96,7 +97,7 @@ export default function UserProfilePage() {
                   No suggestions yet.
                 </p>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-8 sm:px-4 md:px-0">
                   {songs.map((song) => (
                     <SongCard key={song._id} song={song} hideUsername />
                   ))}
