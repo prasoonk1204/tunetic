@@ -35,9 +35,9 @@ export default function Header({ onOpenSuggest }) {
               height={30}
               width={30}
             />
-            <span className="text-lg font-semibold text-gray-900 dark:text-white select-none">
+            <Link href="/home" className="text-lg font-semibold text-gray-900 dark:text-white select-none">
               Tunetic
-            </span>
+            </Link>
           </div>
 
           <div className="flex items-center gap-4 relative" ref={dropdownRef}>
