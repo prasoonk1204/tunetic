@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import SongCard from "@/components/SongCard";
@@ -11,12 +12,23 @@ import SkeletonCard from "@/components/SkeletonCard";
 
 export default function UserProfilePage() {
   const { username } = useParams();
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
   const [user, setUser] = useState(null);
   const [songs, setSongs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isSuggestOpen, setIsSuggestOpen] = useState(false);
 
   useEffect(() => {
+    if (status === "unauthenticated") {
+      router.replace("/login");
+    }
+  }, [status, router]);
+
+  useEffect(() => {
+    if (status !== "authenticated") return;
+
     const fetchUserData = async () => {
       try {
         const res = await fetch(`/api/user/${username}`);
@@ -31,11 +43,15 @@ export default function UserProfilePage() {
     };
 
     fetchUserData();
-  }, [username]);
+  }, [username, status]);
 
   const addSuggestedSong = (songData) => {
     setSongs((prev) => [songData, ...prev]);
   };
+
+  if (status === "loading" || status === "unauthenticated") {
+    return null;
+  }
 
   return (
     <>

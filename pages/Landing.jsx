@@ -1,12 +1,13 @@
-"use client";
 import Hero from "@/components/landing/Hero";
 import CTA from "@/components/landing/CTA";
 import Footer from "@/components/landing/Footer";
+import Stats from "@/components/landing/Stats";
 
 const TuneticLanding = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-white">
       <Hero />
+      <Stats />
       <CTA />
       <Footer />
     </div>
