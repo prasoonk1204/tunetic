@@ -26,7 +26,7 @@ export default function Header({ onOpenSuggest }) {
 
   return (
     <header className="p-4 flex items-center justify-center fixed w-full top-0 z-[100]">
-      <div className="w-full max-w-8xl bg-white/60 dark:bg-black/30 transition-all duration-300 border border-zinc-200 dark:border-zinc-700/60 rounded-3xl backdrop-blur-sm ">
+      <div className="w-full max-w-8xl bg-white/60 dark:bg-black/30 transition-all duration-300 border border-zinc-200 dark:border-zinc-700/50 rounded-3xl backdrop-blur-sm ">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center space-x-2">
             <Image
@@ -35,7 +35,7 @@ export default function Header({ onOpenSuggest }) {
               height={30}
               width={30}
             />
-            <Link href="/home" className="text-lg font-semibold text-gray-900 dark:text-white select-none">
+            <Link href="/feed" className="text-lg font-semibold text-gray-900 dark:text-white select-none">
               Tunetic
             </Link>
           </div>

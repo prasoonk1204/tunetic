@@ -68,7 +68,7 @@ export default function SongCard({ song, hideUsername = false }) {
               {song.suggestedBy.length === 1 ? (
                 <Link
                   href={`/user/${song.suggestedBy[0].username}`}
-                  className="relative inline-block text-emerald-700 dark:text-emerald-400 font-mono italic before:content-[''] before:absolute before:-bottom-[2px] before:left-0 before:w-0 before:h-[1px] before:bg-emerald-500 dark:before:bg-emerald-400 hover:before:w-full before:transition-all before:duration-300 text-[15px]"
+                  className="relative inline-block text-emerald-900 dark:text-emerald-200 font-mono italic before:content-[''] before:absolute before:-bottom-[2px] before:left-0 before:w-0 before:h-[1px] before:bg-emerald-800 dark:before:bg-emerald-200 hover:before:w-full before:transition-all before:duration-300 text-[15px]"
                 >
                   @{song.suggestedBy[0].username}
                 </Link>
@@ -76,7 +76,7 @@ export default function SongCard({ song, hideUsername = false }) {
                 <>
                   <Link
                     href={`/user/${song.suggestedBy[0].username}`}
-                    className="relative inline-block text-emerald-700 dark:text-emerald-400 font-mono italic before:content-[''] before:absolute before:-bottom-[2px] before:left-0 before:w-0 before:h-[1px] before:bg-emerald-500 dark:before:bg-emerald-400 hover:before:w-full before:transition-all before:duration-300 text-[15px]"
+                    className="relative inline-block text-emerald-900 dark:text-emerald-200 font-mono italic before:content-[''] before:absolute before:-bottom-[2px] before:left-0 before:w-0 before:h-[1px] before:bg-emerald-800 dark:before:bg-emerald-200 hover:before:w-full before:transition-all before:duration-300 text-[15px]"
                   >
                     @{song.suggestedBy[0].username}
                   </Link>
@@ -111,7 +111,7 @@ export default function SongCard({ song, hideUsername = false }) {
                         <li key={idx}>
                           <Link
                             href={`/user/${user.username}`}
-                            className="relative block text-emerald-600 dark:text-emerald-400 cursor-pointer before:content-[''] before:absolute before:-bottom-[2px] before:left-0 before:w-0 before:h-[1px] before:bg-emerald-500 dark:before:bg-emerald-400 hover:before:w-full before:transition-all before:duration-300 italic"
+                            className="relative block text-emerald-900 dark:text-emerald-200 cursor-pointer before:content-[''] before:absolute before:-bottom-[2px] before:left-0 before:w-0 before:h-[1px] before:bg-emerald-800 dark:before:bg-emerald-200 hover:before:w-full before:transition-all before:duration-300 italic"
                             onClick={() => setShowDropdown(false)}
                           >
                             @{user.username}

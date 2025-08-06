@@ -59,12 +59,12 @@ export default function UserProfilePage() {
           ) : (
             <>
               <Link
-                href="/home"
-                className="text-emerald-600 dark:text-emerald-500 text-[16px] md:text-lg h-2"
+                href="/feed"
+                className="text-gray-500 dark:text-gray-400 text-[16px] md:text-lg h-2"
               >
                 ←{" "}
-                <span className="inline-block transition-all duration-300 hover:translate-x-1 hover:text-emerald-700 dark:hover:text-emerald-400 hover:animate-pulse">
-                  Back to Home
+                <span className="inline-block transition-all duration-300 hover:translate-x-1 hover:text-gray-600 dark:hover:text-gray-500">
+                  Back to Feed
                 </span>
               </Link>
 

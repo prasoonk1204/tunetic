@@ -1,65 +1,46 @@
-# ✅ v0 Work Plan – Tunetic
+# Tunetic
 
-## 🗂️ Project Setup & Architecture
-- [x] Initialize Next.js app with JavaScript
-- [x] Install Tailwind CSS
-- [x] Setup folder structure
-- [x] Configure `.env.local` with:
-  - [x] MongoDB URI
-  - [x] Spotify Client ID & Secret
-  - [x] JWT Secret
-- [ ] Allow external images from Spotify (next.config.js)
+**Tunetic** is a music suggestion platform designed to make discovering and sharing songs effortless and social. Built with a clean, modern UI and real-time interactions, Tunetic brings users together around their favorite tunes.
 
-## 🔐 Auth Setup
-- [ ] Install NextAuth.js
-- [ ] Add Google/GitHub auth
-- [ ] Configure MongoDB adapter
-- [ ] Store user profile on first login
-- [ ] Secure routes (only logged-in users can suggest)
+---
 
-## 🔍 Spotify Search
-- [ ] Create `/api/search` route
-  - [ ] Fetch access token using client credentials
-  - [ ] Call Spotify search endpoint
-  - [ ] Format & return track data
-- [ ] Frontend search bar with debounce
-- [ ] Show search results in dropdown
-- [ ] Display selected track info
-- [ ] Add Submit button
+## Overview
 
-## 📰 Suggest a Song
-- [ ] Create `/api/suggest` route
-  - [ ] Validate input
-  - [ ] Save to MongoDB with userId, timestamp
-- [ ] Display confirmation or success alert
+Tunetic lets users:
 
-## 📃 Feed with Infinite Scroll
-- [ ] Build homepage with feed
-- [ ] Fetch suggestions from `/api/feed`
-- [ ] Display track info, album art, user, time
-- [ ] Implement infinite scroll (cursor-based)
-- [ ] Show skeleton loading while fetching
+-  Suggest songs to the community.
+-  Discover what others are recommending in real-time.
+-  View user profiles and see their shared music.
+-  Enjoy a minimal, distraction-free interface focused on music sharing.
 
-## 👤 User Profile
-- [ ] Create dynamic route: `/user/[username]`
-- [ ] Fetch user info + suggestions
-- [ ] Create `/api/user/[username]` endpoint
+The platform is ideal for small music communities, friend circles, or fan clubs who want a lightweight alternative to bloated music apps.
 
-## 💅 Styling & UX
-- [ ] Tailwind CSS responsive UI
-- [ ] Smooth transitions & dropdowns
-- [ ] Skeleton loaders
-- [ ] Handle empty states + errors
+---
 
-## 🚀 Deployment
-- [ ] Test all flows thoroughly
-- [ ] Deploy to Vercel
-- [ ] Use MongoDB Atlas
-- [ ] Configure environment variables
+##  Features
 
-## 🧠 Bonus (Optional)
-- [ ] Timestamp as "x mins ago"
-- [ ] Dark mode
-- [ ] Settings page
-- [ ] Song bookmarks or likes
-- [ ] Spotify login integration
+-  **Auth via Google/Twitter**: Secure sign-in for suggesting and viewing songs.
+-  **User Profiles**: View your suggestions and others’ in a dedicated profile.
+-  **Responsive Design**: Optimized for mobile and desktop.
+-  **Glassmorphic UI**: Aesthetic layout with subtle gradients and soft visuals.
+
+---
+
+##  Tech Stack
+
+- **Frontend**: Next.js (App Router), Tailwind CSS
+- **Backend**: MongoDB, REST API
+- **Auth**: NextAuth (Google, Twitter)
+- **Deployment**: Vercel
+
+---
+
+##  Project Structure
+
+```bash
+/tunetic
+├── app/              # Next.js App Router pages and layout
+├── components/       # Reusable UI components
+├── lib/              # Helpers, DB connections
+├── models/           # Mongoose models
+├── public/           # Static assets
