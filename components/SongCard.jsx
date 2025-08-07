@@ -137,3 +137,30 @@ export default function SongCard({ song, hideUsername = false }) {
     </div>
   );
 }
+
+export function LandingSongCard({ song }) {
+  return (
+    <div className="relative rounded-4xl overflow-hidden bg-gradient-to-b from-zinc-800 to-black text-white mx-auto shadow-black/30 hover:shadow-xl transition-all duration-300 w-full h-110 sm:h-full">
+      <img
+        src={song.albumArt}
+        alt={song.name}
+        className="w-full  object-cover"
+      />
+
+      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-b from-black/40 via-black/60 to-black/80 backdrop-blur-md text-zinc-300 dark:text-zinc-300 shadow-[inset_0_-4px_8px_rgba(255,255,255,0.2)]">
+        <div className="font-bold text-3xl text-white mb-4">{song.name}</div>
+        <div className="text-lg">{song.artists}</div>
+        <div className="text-sm">Album: {song.album}</div>
+
+        <a
+          href={song.spotifyUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block w-full text-center bg-emerald-500 hover:bg-emerald-600 text-white text-lg hover:text-[15px] font-medium py-3 rounded-2xl transition-all duration-200 shadow-md"
+        >
+          Listen on Spotify
+        </a>
+      </div>
+    </div>
+  );
+}

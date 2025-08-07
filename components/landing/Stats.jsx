@@ -7,6 +7,29 @@ import clsx from "clsx";
 export default function Stats() {
   const [stats, setStats] = useState(null);
 
+  const colorClasses = {
+    "emerald-500": {
+      text: "text-emerald-500",
+      border: "border-emerald-500",
+      from: "from-emerald-500/30",
+    },
+    "blue-500": {
+      text: "text-blue-500",
+      border: "border-blue-500",
+      from: "from-blue-500/30",
+    },
+    "yellow-500": {
+      text: "text-yellow-500",
+      border: "border-yellow-500",
+      from: "from-yellow-500/30",
+    },
+    "red-500": {
+      text: "text-red-500",
+      border: "border-red-500",
+      from: "from-red-500/30",
+    },
+  };
+
   useEffect(() => {
     async function fetchStats() {
       try {
@@ -71,41 +94,45 @@ export default function Stats() {
   ];
 
   return (
-    <div className=" bg-black text-white mt-20 sm:mt-30 flex flex-col justify-center items-center p-10 py-20 sm:py-35 relative">
+    <div className=" bg-black text-white mt-20 md:mt-30 flex flex-col justify-center items-center p-10 py-20 sm:py-35 relative">
       <h1 className="text-4xl sm:text-5xl mb-8 sm:mb-14 text-center z-10">
         What's Poppin' Right Now
       </h1>
       {stats ? (
         <div className="grid sm:grid-cols-2 gap-8 z-10 text-center sm:text-start">
-          {statCards.map((stat, index) => (
-            <div
-              key={index}
-              className="bg-gray-700/20 p-4 rounded-3xl max-w-95 flex flex-col sm:flex-row gap-4 backdrop-blur-xl border-1 border-gray-700/30"
-            >
+          {statCards.map((stat, index) => {
+            const color = colorClasses[stat.iconColor];
+
+            return (
               <div
-                className={clsx(
-                  "border-t-1 p-3 rounded-full h-fit bg-gradient-to-b flex justify-center",
-                  `text-${stat.iconColor}`,
-                  `border-${stat.iconColor}`,
-                  `from-${stat.iconColor}/30`
-                )}
+                key={index}
+                className="bg-gray-700/20 p-4 rounded-3xl max-w-95 flex flex-col sm:flex-row gap-4 backdrop-blur-xl border-1 border-gray-700/30"
               >
-                {stat.icon}
-              </div>
-              <div>
-                <h2 className="sm:text-lg">{stat.title}</h2>
-                <p
-                  className="text-3xl sm:text-4xl mb-4 font-medium"
-                  title={stat.value}
+                <div
+                  className={clsx(
+                    "border-t-1 p-3 rounded-full h-fit bg-gradient-to-b flex justify-center",
+                    color.text,
+                    color.border,
+                    color.from
+                  )}
                 >
-                  {stat.value.length > 25
-                    ? stat.value.slice(0, 25) + "..."
-                    : stat.value}
-                </p>
-                {stat.stat && <span className="text-sm">{stat.stat}</span>}
+                  {stat.icon}
+                </div>
+                <div>
+                  <h2 className="sm:text-lg">{stat.title}</h2>
+                  <p
+                    className="text-3xl sm:text-4xl mb-4 font-medium"
+                    title={stat.value}
+                  >
+                    {typeof stat.value === "string" && stat.value.length > 25
+                      ? stat.value.slice(0, 25) + "..."
+                      : stat.value}
+                  </p>
+                  {stat.stat && <span className="text-sm">{stat.stat}</span>}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       ) : (
         skeleton

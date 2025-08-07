@@ -21,7 +21,27 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-100/50 via-white to-emerald-200/50 dark:from-zinc-950 dark:via-emerald-600/30 dark:to-zinc-950 px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 w-full relative bg-white dark:bg-black">
+      <div
+        className="absolute inset-0 z-0 block dark:hidden"
+        style={{
+          backgroundImage: `
+    radial-gradient(circle at 50% 120%, rgba(16, 185, 129, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 50% 120%, rgba(5, 150, 105, 0.4) 0%, transparent 70%),
+    radial-gradient(circle at 50% 120%, rgba(110, 231, 183, 0.3) 0%, transparent 80%)
+  `,
+        }}
+      />
+      <div
+        className="absolute inset-0 z-0 hidden dark:block"
+        style={{
+          backgroundImage: `
+    radial-gradient(circle at 50% 130%, rgba(16, 185, 129, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 50% 130%, rgba(5, 150, 105, 0.4) 0%, transparent 70%),
+    radial-gradient(circle at 50% 130%, rgba(110, 231, 183, 0.3) 0%, transparent 80%)
+  `,
+        }}
+      />
       <Header />
       <div className="w-full max-w-[420px] p-8 rounded-4xl backdrop-blur-md bg-white/50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-900/80 shadow-xl text-center space-y-6">
         <div className="flex justify-center">
@@ -44,7 +64,7 @@ export default function LoginPage() {
         <div className="space-y-3">
           <button
             onClick={() => signIn("google")}
-            className="w-full flex items-center justify-center gap-2 rounded-2xl py-3 px-4 border bg-white dark:bg-zinc-900 text-zinc-800 dark:text-white border-zinc-300 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 shadow-sm transition hover:cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 rounded-2xl py-3 px-4 border bg-white dark:bg-zinc-700/70 text-zinc-800 dark:text-white border-zinc-300 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 shadow-sm transition hover:cursor-pointer"
           >
             <Image src="/google-icon.png" alt="Google" width={20} height={20} />
             <span className="font-medium text-[16px]">
@@ -61,7 +81,7 @@ export default function LoginPage() {
           </button>
         </div>
 
-        <p className="text-xs text-zinc-500 dark:text-zinc-600 pt-2">
+        <p className="text-xs text-zinc-500 dark:text-zinc-400 pt-2">
           By continuing, you agree to our Terms & Privacy Policy.
         </p>
       </div>

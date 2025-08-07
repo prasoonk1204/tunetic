@@ -13,7 +13,7 @@ export default function Footer() {
     },
     {
       title: "Feedback",
-      url: "adf",
+      url: "mailto:prasoonkumar467@gmail.com?subject=Feedback%20for%20Tunetic&body=Hi%20Tunetic%20Team%2C%0A%0AI%20would%20like%20to%20share%20my%20feedback%3A%0A",
     },
   ];
 
