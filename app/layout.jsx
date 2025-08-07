@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <meta property="og:description" content="Music Suggestion App" />
         <meta
           property="og:image"
-          content="https://ik.imagekit.io/kenma/ogimage.png?updatedAt=1754586945042"
+          content="https://ik.imagekit.io/kenma/image.png?updatedAt=1754597401108"
         />
         <meta property="og:url" content="https://tunetic.vercel.app" />
         <meta property="og:type" content="website" />

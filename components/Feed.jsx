@@ -15,11 +15,11 @@ export default function Feed({ suggestedSongs, lastSongRef, showLoading }) {
             );
           })}
         </div>
-      ) : (
+      ) : !showLoading ? (
         <div className="text-sm text-gray-500 dark:text-zinc-400 px-8">
           No suggestions yet.
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
