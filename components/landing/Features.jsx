@@ -32,8 +32,8 @@ export default function Features() {
             bg="from-blue-50 to-indigo-100"
           >
             <p className="text-gray-700 text-sm leading-relaxed">
-              Share your favorite tracks with the community and discover new music
-              through peer recommendations.
+              Share your favorite tracks with the community and discover new
+              music through peer recommendations.
             </p>
             <Image
               src="https://ik.imagekit.io/kenma/suggestsong.png?updatedAt=1754582315124"
@@ -70,9 +70,9 @@ export default function Features() {
             bg="from-purple-50 to-violet-100"
           >
             <div className="flex space-x-1">
-              <Bar color="purple-200" />
-              <Bar color="purple-300" />
-              <Bar color="purple-400" />
+              <div className={`w-4 h-6 bg-purple-200 rounded-sm`}></div>
+              <div className={`w-4 h-6 bg-purple-300 rounded-sm`}></div>
+              <div className={`w-4 h-6 bg-purple-400 rounded-sm`}></div>
             </div>
           </FeatureCard>
         </div>
@@ -85,9 +85,15 @@ export default function Features() {
             bg="from-orange-50 to-amber-100"
           >
             <div className="flex -space-x-2">
-              <Avatar color="red-400" />
-              <Avatar color="blue-400" />
-              <Avatar color="green-400" />
+              <div
+                className={`w-8 h-8 bg-red-400 rounded-full border-2 border-white`}
+              ></div>
+              <div
+                className={`w-8 h-8 bg-blue-400 rounded-full border-2 border-white`}
+              ></div>
+              <div
+                className={`w-8 h-8 bg-emerald-400 rounded-full border-2 border-white`}
+              ></div>
             </div>
           </FeatureCard>
         </div>
@@ -117,14 +123,3 @@ function FeatureCard({ icon, title, children, bg }) {
   );
 }
 
-function Avatar({ color }) {
-  return (
-    <div
-      className={`w-8 h-8 bg-${color} rounded-full border-2 border-white`}
-    ></div>
-  );
-}
-
-function Bar({ color }) {
-  return <div className={`w-4 h-6 bg-${color} rounded-sm`}></div>;
-}
