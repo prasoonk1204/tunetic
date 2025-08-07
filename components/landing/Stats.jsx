@@ -71,7 +71,7 @@ export default function Stats() {
       iconColor: "emerald-500",
     },
     {
-      title: "Songs Suggested",
+      title: "Songs Shared",
       value: stats.totalSongs,
       stat: "",
       icon: <HeadphonesIcon height={36} width={36} />,
@@ -80,14 +80,14 @@ export default function Stats() {
     {
       title: "Top Artist",
       value: stats.topArtist?.name || "N/A",
-      stat: `${stats.topArtist?.count || 0} songs suggested`,
+      stat: `${stats.topArtist?.count || 0} tracks picked`,
       icon: <User2 height={36} width={36} />,
       iconColor: "yellow-500",
     },
     {
       title: "Now Trending",
       value: stats.trending?.name || "N/A",
-      stat: `Suggested ${stats.trending?.count || 0} times`,
+      stat: `Chosen ${stats.trending?.count || 0} times`,
       icon: <TrendingUp height={36} width={36} />,
       iconColor: "red-500",
     },

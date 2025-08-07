@@ -10,7 +10,7 @@ import Feed from "@/components/Feed";
 import SkeletonCard from "@/components/SkeletonCard";
 
 export default function Page() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
 
   const [suggestedSongs, setSuggestedSongs] = useState([]);
@@ -18,12 +18,6 @@ export default function Page() {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(true);
   const [isSuggestOpen, setIsSuggestOpen] = useState(false);
-
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.replace("/login");
-    }
-  }, [status, router]);
 
   const fetchSongs = async (pageNum = 1) => {
     const limit = 12;
@@ -48,12 +42,10 @@ export default function Page() {
   };
 
   useEffect(() => {
-    if (status === "authenticated") {
-      fetchSongs(1);
-    }
-  }, [status]);
+    fetchSongs(1);
+  }, []);
 
-  const observer = useRef();
+  const observer = useRef(null);
   const lastSongRef = useCallback(
     (node) => {
       if (loading || !hasMore) return;
@@ -72,17 +64,24 @@ export default function Page() {
     setSuggestedSongs((prev) => [songData, ...prev]);
   };
 
-  if (status === "loading" || status === "unauthenticated") return null;
+  const handleOpenSuggest = () => {
+    if (!session) {
+      router.push("/login");
+    } else {
+      setIsSuggestOpen(true);
+    }
+  };
 
   return (
     <>
-      <Header onOpenSuggest={() => setIsSuggestOpen(true)} />
+      <Header onOpenSuggest={handleOpenSuggest} />
       <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors pt-26 w-full flex flex-col items-center px-4">
         <div className="max-w-5xl w-full flex flex-col gap-8 z-20">
           <section className="w-full">
             <h2 className="text-xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">
-              Tunes for You
+              What Everyone’s Vibin’ To
             </h2>
+
             <Feed
               suggestedSongs={suggestedSongs}
               lastSongRef={lastSongRef}
@@ -100,7 +99,7 @@ export default function Page() {
         </div>
       </div>
 
-      {isSuggestOpen && (
+      {isSuggestOpen && session && (
         <SuggestModal
           onClose={() => setIsSuggestOpen(false)}
           onSuggest={addSuggestedSong}

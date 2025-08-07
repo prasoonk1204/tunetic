@@ -13,7 +13,7 @@ import SkeletonCard from "@/components/SkeletonCard";
 export default function UserProfilePage() {
   const { username } = useParams();
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   const [user, setUser] = useState(null);
   const [songs, setSongs] = useState([]);
@@ -21,14 +21,6 @@ export default function UserProfilePage() {
   const [isSuggestOpen, setIsSuggestOpen] = useState(false);
 
   useEffect(() => {
-    if (status === "unauthenticated") {
-      router.replace("/login");
-    }
-  }, [status, router]);
-
-  useEffect(() => {
-    if (status !== "authenticated") return;
-
     const fetchUserData = async () => {
       try {
         const res = await fetch(`/api/user/${username}`);
@@ -43,19 +35,23 @@ export default function UserProfilePage() {
     };
 
     fetchUserData();
-  }, [username, status]);
+  }, [username]);
 
   const addSuggestedSong = (songData) => {
     setSongs((prev) => [songData, ...prev]);
   };
 
-  if (status === "loading" || status === "unauthenticated") {
-    return null;
-  }
+  const handleOpenSuggest = () => {
+    if (!session) {
+      router.push("/login");
+    } else {
+      setIsSuggestOpen(true);
+    }
+  };
 
   return (
     <>
-      <Header onOpenSuggest={() => setIsSuggestOpen(true)} />
+      <Header onOpenSuggest={handleOpenSuggest} />
 
       <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors pt-2 w-full flex flex-col items-center px-4">
         <div className="max-w-5xl w-full flex flex-col gap-8 z-20 pt-24 pb-10">
@@ -63,11 +59,9 @@ export default function UserProfilePage() {
             <>
               <SkeletonCard variant="profile" />
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-8 sm:px-4 md:px-0">
-                {Array(3)
-                  .fill(0)
-                  .map((_, i) => (
-                    <SkeletonCard key={i} />
-                  ))}
+                {[...Array(3)].map((_, i) => (
+                  <SkeletonCard key={i} />
+                ))}
               </div>
             </>
           ) : !user ? (
@@ -124,7 +118,7 @@ export default function UserProfilePage() {
         </div>
       </div>
 
-      {isSuggestOpen && (
+      {isSuggestOpen && session && (
         <SuggestModal
           onClose={() => setIsSuggestOpen(false)}
           onSuggest={addSuggestedSong}

@@ -1,5 +1,6 @@
 import "./globals.css";
 import Providers from "./providers";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "Tunetic",
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
       </head>
       <body className="antialiased">
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          <Analytics />
+        </Providers>
       </body>
     </html>
   );

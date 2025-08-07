@@ -81,7 +81,7 @@ export default function Features() {
         <div className="order-5 md:col-start-1 md:row-start-6 xl:col-start-2 xl:row-start-3">
           <FeatureCard
             icon={<Heart size={60} className="text-orange-600" />}
-            title="Community Feed"
+            title="Explore First, Join Later"
             bg="from-orange-50 to-amber-100"
           >
             <div className="flex -space-x-2">

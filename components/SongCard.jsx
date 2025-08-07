@@ -55,9 +55,17 @@ export default function SongCard({ song, hideUsername = false }) {
       />
 
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-b from-white/80 via-white/65 to-white/50 dark:from-black/40 dark:via-black/60 dark:to-black/80 backdrop-blur-md text-zinc-900 dark:text-zinc-300 shadow-[inset_0_-4px_8px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_-4px_8px_rgba(255,255,255,0.2)]">
-        <div className="font-bold text-xl dark:text-white">{song.name}</div>
+        <div className="font-bold text-xl dark:text-white truncate">
+          {song.name.length > 40 ? `${song.name.slice(0, 40)}...` : song.name}
+        </div>
+
         <div className="text-[16px]">{song.artists}</div>
-        <div className="text-sm">Album: {song.album}</div>
+        <div className="text-sm truncate">
+          Album:{" "}
+          {song.album.length > 40
+            ? `${song.album.slice(0, 40)}...`
+            : song.album}
+        </div>
 
         {!hideUsername &&
           Array.isArray(song.suggestedBy) &&

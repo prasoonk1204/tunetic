@@ -65,13 +65,7 @@ export async function POST(request) {
   }
 }
 
-
 export async function GET(request) {
-  const session = await getServerSession(authOptions);
-  if (!session || !session.user?.id) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
   await connectToDB();
 
   const { searchParams } = new URL(request.url);
