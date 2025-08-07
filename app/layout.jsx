@@ -11,11 +11,17 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/tuneticlogo.png" sizes="any" />
+        <meta property="og:title" content="Tunetic" />
+        <meta property="og:description" content="Music Suggestion App" />
+        <meta
+          property="og:image"
+          content="https://ik.imagekit.io/kenma/ogimage.png?updatedAt=1754586945042"
+        />
+        <meta property="og:url" content="https://tunetic.vercel.app" />
+        <meta property="og:type" content="website" />
       </head>
       <body className="antialiased">
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
