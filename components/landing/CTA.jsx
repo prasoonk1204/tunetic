@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function CTA(){
     return (
-      <div className="relative h-[70vh] my-20 m-4 sm:m-16 lg:m-30 flex justify-center items-center">
+      <div className="relative my-20 m-4 sm:m-16 lg:m-30 flex justify-center items-center h-screen max-h-[520px] max-w-[1400px]">
         <div className="z-10 text-center p-8 sm:p-20">
           <h1 className="text-5xl md:text-7xl mb-8">
             Drop tracks. Discover others. Vibe together.

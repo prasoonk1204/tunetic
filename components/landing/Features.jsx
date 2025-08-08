@@ -13,7 +13,7 @@ export default function Features() {
   };
 
   return (
-    <div className="mx-4 my-20 sm:m-20 md:m-30 h-fit md:h-screen xl:h-[70vh]">
+    <div className="mx-4 mt-20 sm:m-20 md:m-30 md:mb-20 h-fit md:h-screen xl:max-h-[530px] max-w-[1400px]">
       <div
         className="grid gap-4 h-full
         md:grid-cols-2 md:grid-rows-6

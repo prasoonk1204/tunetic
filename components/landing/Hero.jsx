@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="relative h-screen sm:m-8 flex justify-center items-center p-4 sm:p-8">
+    <div className="relative min-h-[780px] max-w-[1400px] w-full flex justify-center items-center p-4 sm:p-8">
       <div className="z-10 text-center">
         <h1 className="text-5xl sm:text-6xl md:text-[80px] mb-4 font-medium">
           Find the <span className="font-bold">Beat</span>

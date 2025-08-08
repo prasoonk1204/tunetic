@@ -94,7 +94,7 @@ export default function Stats() {
   ];
 
   return (
-    <div className=" bg-black text-white mt-20 md:mt-30 flex flex-col justify-center items-center p-10 py-20 sm:py-35 relative">
+    <div className=" bg-black text-white mt-20 md:mt-30 flex flex-col justify-center items-center p-10 py-20 sm:py-35 relative w-full">
       <h1 className="text-4xl sm:text-5xl mb-8 sm:mb-14 text-center z-10">
         What's Poppin' Right Now
       </h1>

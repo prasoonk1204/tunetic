@@ -33,7 +33,7 @@ export default function Footer() {
   ];
 
   return (
-    <div className="border-t-1 border-black text-black mx-4 sm:mx-16 lg:mx-30 mb-10 flex flex-col sm:flex-row justify-between items-center sm:items-start py-8 gap-8 relative">
+    <div className="border-t-1 border-black text-black mx-4 sm:mx-16 lg:mx-30 mb-10 flex flex-col sm:flex-row justify-between items-center sm:items-start py-8 gap-8 relative max-h-[600px] max-w-[1400px] w-[90vw] sm:w-[80vw]">
       <div className="text-center sm:text-start">
         <h3 className="text-2xl sm:text-4xl font-semibold">Tunetic</h3>
         <h3 className="text-lg mb-4 sm:mb-8">Vibe. Suggest. Repeat.</h3>
@@ -54,7 +54,11 @@ export default function Footer() {
         <div className="flex gap-1 flex-col">
           {quickLinks.map((link, index) => {
             return (
-              <Link className="hover:-translate-x-1 transition-all duration-100" key={index} href={link.url}>
+              <Link
+                className="hover:-translate-x-1 transition-all duration-100"
+                key={index}
+                href={link.url}
+              >
                 {link.title}
               </Link>
             );

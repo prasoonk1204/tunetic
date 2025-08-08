@@ -42,7 +42,7 @@ export default function Header({ onOpenSuggest }) {
       }`}
     >
       <div
-        className={`w-full max-w-8xl bg-white/60 dark:bg-black/30 transition-all duration-150 border border-zinc-200 dark:border-zinc-700/50 backdrop-blur-sm  ${
+        className={`w-full max-w-[1480px] bg-white/60 dark:bg-black/30 transition-all duration-150 border border-zinc-200 dark:border-zinc-700/50 backdrop-blur-sm  ${
           scrolled ? "rounded-b-3xl" : "rounded-3xl"
         }`}
       >
