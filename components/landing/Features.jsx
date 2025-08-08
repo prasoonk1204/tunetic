@@ -13,7 +13,7 @@ export default function Features() {
   };
 
   return (
-    <div className="mx-4 mt-20 sm:m-20 md:m-30 md:mb-20 h-fit md:h-screen xl:max-h-[530px] max-w-[1400px]">
+    <div className="mx-4 mt-20 sm:m-20 lg:m-30 md:mb-20 h-fit md:h-[90vw] lg:h-[80vw] xl:max-h-[530px] max-w-[1400px]">
       <div
         className="grid gap-4 h-full
         md:grid-cols-2 md:grid-rows-6
@@ -25,7 +25,7 @@ export default function Features() {
         </div>
 
         {/* Social Song Suggestions */}
-        <div className="order-2 md:col-start-1 md:row-start-2 md:row-span-3 xl:col-start-1 xl:row-start-2 xl:row-span-3 max-h-[390px]">
+        <div className="order-2 md:col-start-1 md:row-start-2 md:row-span-3 xl:col-start-1 xl:row-start-2 xl:row-span-3 h-[400px] md:h-full">
           <FeatureCard
             icon={<Users size={80} className="text-blue-600" />}
             title="Social Song Suggestions"

@@ -1,12 +1,12 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="relative min-h-[780px] max-w-[1400px] w-full flex justify-center items-center p-4 sm:p-8">
+    <div className="relative min-h-[800px] max-w-[1400px] w-full flex justify-center items-center p-4 sm:p-8">
       <div className="z-10 text-center">
-        <h1 className="text-5xl sm:text-6xl md:text-[80px] mb-4 font-medium">
+        <h1 className="text-5xl sm:text-6xl lg:text-[80px] mb-4 font-medium">
           Find the <span className="font-bold">Beat</span>
           <br /> Everyone’s Tuning Into
         </h1>
@@ -16,13 +16,13 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="/login">
-            <button className="shine-btn bg-emerald-500 hover:bg-emerald-600 text-white text-xl sm:text-2xl font-medium px-8 py-3 rounded-4xl shadow-md transition-all duration-200 cursor-pointer border border-emerald-500">
+            <button className="shine-btn bg-emerald-500 hover:bg-emerald-600 text-white text-xl md:text-2xl font-medium px-8 py-3 rounded-4xl shadow-md transition-all duration-200 cursor-pointer border border-emerald-500">
               Join the Vibe
             </button>
           </Link>
 
           <Link href="/feed">
-            <button className="shine-btn bg-zinc-200/10 hover:bg-zinc-200/30 border border-white/30 text-white text-xl sm:text-2xl font-medium px-8 py-3 rounded-4xl backdrop-blur-md cursor-pointer">
+            <button className="shine-btn bg-zinc-200/10 hover:bg-zinc-200/30 border border-white/30 text-white text-xl md:text-2xl font-medium px-8 py-3 rounded-4xl backdrop-blur-md cursor-pointer">
               Explore Feed
             </button>
           </Link>
@@ -79,5 +79,4 @@ export default function Hero() {
       `}</style>
     </div>
   );
-  
 }
