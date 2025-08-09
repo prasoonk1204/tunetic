@@ -12,9 +12,12 @@ export default function RootLayout({ children }) {
         <meta property="og:description" content="Music Suggestion App" />
         <meta
           property="og:image"
-          content="https://ik.imagekit.io/kenma/tunetic-og.png?updatedAt=1754656069395"
+          content="https://tunetic.vercel.app/tunetic-banner.png"
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:url" content="https://tunetic.vercel.app" />
+        <meta property="og:site_name" content="Tunetic" />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -22,9 +25,12 @@ export default function RootLayout({ children }) {
         <meta name="twitter:description" content="Music Suggestion App" />
         <meta
           name="twitter:image"
-          content="https://ik.imagekit.io/kenma/tunetic-og.png?updatedAt=1754656069395"
+          content="https://tunetic.vercel.app/tunetic-banner.png"
         />
         <meta name="twitter:url" content="https://tunetic.vercel.app" />
+        <meta name="twitter:site" content="@kenma_dev" />
+        <meta name="twitter:creator" content="@kenma_dev" />
+
       </head>
       <body className="antialiased">
         <Providers>

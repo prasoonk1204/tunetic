@@ -70,7 +70,7 @@ export default function Header({ onOpenSuggest }) {
             {pathname !== "/" && pathname !== "/login" && (
               <button
                 onClick={onOpenSuggest}
-                className="flex items-center gap-1 px-3 sm:px-4 py-1.5 rounded-3xl border border-emerald-400 bg-emerald-100/30 dark:bg-emerald-600/30 hover:bg-emerald-300/80 dark:hover:bg-emerald-500 transition font-medium text-emerald-900 dark:text-white cursor-pointer"
+                className="flex items-center gap-1 px-3 sm:px-4 py-1.5 rounded-2xl border border-emerald-400 bg-emerald-100/30 dark:bg-emerald-600/30 hover:bg-emerald-300/80 dark:hover:bg-emerald-500 transition font-medium text-emerald-900 dark:text-white cursor-pointer"
                 title="Suggest a song"
               >
                 <Music2 className="h-4 w-4" />
@@ -82,7 +82,7 @@ export default function Header({ onOpenSuggest }) {
               <div className="relative">
                 <button
                   onClick={() => setOpen((prev) => !prev)}
-                  className="flex items-center gap-2 p-1 rounded-3xl hover:bg-zinc-200 dark:hover:bg-zinc-800 transition border border-zinc-300 dark:border-zinc-700 hover:cursor-pointer"
+                  className="flex items-center gap-2 p-1 rounded-2xl hover:bg-zinc-200 dark:hover:bg-zinc-800 transition border border-zinc-300 dark:border-zinc-700 hover:cursor-pointer"
                 >
                   <Image
                     src={session.user.image}

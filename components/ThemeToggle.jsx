@@ -16,7 +16,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`p-2 transition-colors duration-200 rounded-full border border-zinc-300 dark:border-zinc-700 hover:cursor-pointer ${
+      className={`p-2 transition-colors duration-200 rounded-2xl border border-zinc-300 dark:border-zinc-700 hover:cursor-pointer ${
         isDark
           ? "text-zinc-300 hover:text-white hover:bg-zinc-200/20"
           : "text-zinc-700 hover:text-black hover:bg-zinc-500/20"

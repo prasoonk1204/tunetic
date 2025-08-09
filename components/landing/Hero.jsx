@@ -34,7 +34,7 @@ export default function Hero() {
         fill
         className="object-cover rounded-b-4xl sm:rounded-4xl absolute z-0"
       />
-      <h2 className="text-2xl absolute z-50 top-5 left-[50%] transform -translate-x-1/2">
+      <h2 className="text-2xl absolute z-50 top-5 left-[50%] transform -translate-x-1/2 animate-pulse">
         Tunetic
       </h2>
       <style jsx global>{`
@@ -70,7 +70,7 @@ export default function Hero() {
 
         @keyframes shine-sweep {
           0% {
-            left: -150%;
+            left: -100%;
           }
           100% {
             left: 100%;

@@ -108,16 +108,17 @@ export default function Stats() {
                 key={index}
                 className="bg-gray-700/20 p-4 rounded-3xl max-w-95 flex flex-col sm:flex-row gap-4 backdrop-blur-xl border-1 border-gray-700/30"
               >
-                <div
-                  className={clsx(
-                    "border-t-1 p-3 rounded-full h-fit bg-gradient-to-b flex justify-center",
-                    color.text,
-                    color.border,
-                    color.from
-                  )}
-                >
-                  {stat.icon}
-                </div>
+                  <div
+                    className={clsx(
+                      "border-t-1 p-3 rounded-full h-full bg-gradient-to-b flex justify-center items-center animate-pulse",
+                      color.text,
+                      color.border,
+                      color.from
+                    )}
+                  >
+                    {stat.icon}
+                  </div>
+
                 <div>
                   <h2 className="sm:text-lg">{stat.title}</h2>
                   <p

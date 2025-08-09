@@ -27,7 +27,7 @@ export default function Features() {
         {/* Social Song Suggestions */}
         <div className="order-2 md:col-start-1 md:row-start-2 md:row-span-3 xl:col-start-1 xl:row-start-2 xl:row-span-3 h-[400px] md:h-full">
           <FeatureCard
-            icon={<Users size={80} className="text-blue-600" />}
+            icon={<Users size={80} className="text-blue-600 animate-pulse" />}
             title="Social Song Suggestions"
             bg="from-blue-50 to-indigo-100"
           >
@@ -48,7 +48,7 @@ export default function Features() {
         {/* Secure Authentication */}
         <div className="order-3 md:col-start-2 md:row-start-5 md:row-span-2 xl:col-start-2 xl:row-start-1 xl:row-span-2 max-h-[300px]">
           <FeatureCard
-            icon={<Shield size={60} className="text-green-600" />}
+            icon={<Shield size={60} className="text-green-600 animate-pulse" />}
             title="Secure Authentication"
             bg="from-green-50 to-emerald-100"
           >
@@ -65,7 +65,9 @@ export default function Features() {
         {/* Mobile-Friendly Design */}
         <div className="order-4 md:col-start-1 md:row-start-5 xl:col-start-2 xl:row-start-4">
           <FeatureCard
-            icon={<Smartphone size={60} className="text-purple-600" />}
+            icon={
+              <Smartphone size={60} className="text-purple-600 animate-pulse" />
+            }
             title="Mobile-Friendly Design"
             bg="from-purple-50 to-violet-100"
           >
@@ -80,7 +82,7 @@ export default function Features() {
         {/* Community Feed */}
         <div className="order-5 md:col-start-1 md:row-start-6 xl:col-start-2 xl:row-start-3">
           <FeatureCard
-            icon={<Heart size={60} className="text-orange-600" />}
+            icon={<Heart size={60} className="text-orange-600 animate-pulse" />}
             title="Explore First, Join Later"
             bg="from-orange-50 to-amber-100"
           >
