@@ -7,7 +7,7 @@ export default function Features() {
     name: "Love Yourself",
     artists: "Justin Bieber",
     album: "Purpose",
-    albumArt: "https://ik.imagekit.io/kenma/image.png?updatedAt=1754581695541",
+    albumArt: "/albumCover.jpeg",
     spotifyUrl:
       "https://open.spotify.com/track/50kpGaPAhYJ3sGmk6vplg0?si=d32b7a8c04d049aa",
   };

@@ -3,7 +3,7 @@ import User from "@/models/User";
 import Song from "@/models/Song";
 
 export async function GET(req, { params }) {
-  const { username } = params;
+  const { username } = await params;
   await connectToDB();
 
   const user = await User.findOne({ username });
