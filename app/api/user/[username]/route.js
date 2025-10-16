@@ -13,7 +13,11 @@ export async function GET(req, { params }) {
     });
   }
 
-  const songs = await Song.find({ suggestedBy: { $elemMatch: { userId: user._id } } }).sort({ createdAt: -1 }).lean();
+  const songs = await Song.find({
+    suggestedBy: { $elemMatch: { userId: user._id } },
+  })
+    .sort({ createdAt: -1 })
+    .lean();
 
   return new Response(JSON.stringify({ user, songs }), {
     status: 200,

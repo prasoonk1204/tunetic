@@ -62,7 +62,7 @@ export async function GET(request) {
         topArtist,
         trending: topTrending || null,
       }),
-      { status: 200, headers }
+      { status: 200, headers },
     );
   } catch (error) {
     console.error(error);

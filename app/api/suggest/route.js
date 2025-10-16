@@ -16,7 +16,7 @@ export async function POST(request) {
     const body = await request.json();
     await connectToDB();
 
-    const dbUser = await User.findOne({ providerAccountId: session.user.id });
+    const dbUser = await User.findById(session.user.id);
     if (!dbUser) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
@@ -25,13 +25,13 @@ export async function POST(request) {
 
     if (existing) {
       const alreadySuggested = existing.suggestedBy.some(
-        (u) => u.userId.toString() === dbUser._id.toString()
+        (u) => u.userId.toString() === dbUser._id.toString(),
       );
 
       if (alreadySuggested) {
         return NextResponse.json(
           { error: "You already suggested this song" },
-          { status: 409 }
+          { status: 409 },
         );
       }
 

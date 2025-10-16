@@ -50,6 +50,6 @@ export default function DropdownPortal({
     >
       {children}
     </div>,
-    document.body
+    document.body,
   );
 }

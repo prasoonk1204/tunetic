@@ -11,7 +11,7 @@ async function getAccessToken() {
   if (accessToken && Date.now() < tokenExpiry) return accessToken;
 
   const authString = Buffer.from(`${clientId}:${clientSecret}`).toString(
-    "base64"
+    "base64",
   );
 
   const res = await fetch("https://accounts.spotify.com/api/token", {
@@ -52,13 +52,13 @@ export async function GET(req) {
 
     const result = await fetch(
       `https://api.spotify.com/v1/search?q=${encodeURIComponent(
-        query
+        query,
       )}&type=track&limit=5`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     );
 
     console.log("📡 Spotify API response status:", result.status);
@@ -75,8 +75,7 @@ export async function GET(req) {
     console.error("💥 Spotify search error:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
-

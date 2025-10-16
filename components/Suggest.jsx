@@ -1,7 +1,12 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function Suggest({ onSuggest, inputRef, onDone }) {
+  const { data: session, status } = useSession();
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [results, setResults] = useState([]);
@@ -26,13 +31,14 @@ export default function Suggest({ onSuggest, inputRef, onDone }) {
       try {
         setLoading(true);
         const res = await fetch(
-          `/api/search?q=${encodeURIComponent(debouncedQuery)}`
+          `/api/search?q=${encodeURIComponent(debouncedQuery)}`,
         );
         const data = await res.json();
         setResults(data);
         setShowDropdown(true);
       } catch (err) {
         console.error("Error fetching songs:", err);
+        toast.error("Failed to search songs. Please try again.");
         setResults([]);
       } finally {
         setLoading(false);
@@ -57,6 +63,18 @@ export default function Suggest({ onSuggest, inputRef, onDone }) {
   const handleSuggest = async () => {
     if (!selectedSong) return;
 
+    // Check if user is authenticated
+    if (status === "loading") {
+      toast.info("Please wait, checking authentication...");
+      return;
+    }
+
+    if (!session || status === "unauthenticated") {
+      toast.error("Please log in to suggest songs");
+      router.push("/login");
+      return;
+    }
+
     const songData = {
       name: selectedSong.name,
       album: selectedSong.album.name,
@@ -74,7 +92,13 @@ export default function Suggest({ onSuggest, inputRef, onDone }) {
       });
 
       if (res.status === 409) {
-        alert("You already suggested this song.");
+        toast.warning("You already suggested this song.");
+        return;
+      }
+
+      if (res.status === 401) {
+        toast.error("Please log in to suggest songs");
+        router.push("/login");
         return;
       }
 
@@ -92,7 +116,8 @@ export default function Suggest({ onSuggest, inputRef, onDone }) {
       setSelectedSong(null);
       setShowDropdown(false);
     } catch (err) {
-      console.error(err);
+      console.error("Error suggesting song:", err);
+      toast.error("Failed to suggest song. Please try again.");
     }
   };
 
@@ -150,9 +175,19 @@ export default function Suggest({ onSuggest, inputRef, onDone }) {
                       e.stopPropagation();
                       handleSuggest();
                     }}
-                    className="bg-emerald-500 hover:bg-emerald-600 text-white text-sm px-4 py-1.5 rounded-lg shadow transition"
+                    disabled={status === "loading" || !session}
+                    className={`text-white text-sm px-4 py-1.5 rounded-lg shadow transition ${
+                      session && status === "authenticated"
+                        ? "bg-emerald-500 hover:bg-emerald-600"
+                        : "bg-gray-400 cursor-not-allowed"
+                    }`}
+                    title={!session ? "Please log in to suggest songs" : ""}
                   >
-                    Suggest
+                    {status === "loading"
+                      ? "Loading..."
+                      : session
+                        ? "Suggest"
+                        : "Login Required"}
                   </button>
                 )}
               </li>

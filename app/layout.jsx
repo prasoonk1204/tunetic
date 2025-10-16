@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
         <meta name="twitter:url" content="https://tunetic.vercel.app" />
         <meta name="twitter:site" content="@kenma_dev" />
         <meta name="twitter:creator" content="@kenma_dev" />
-
       </head>
       <body className="antialiased">
         <Providers>

@@ -124,4 +124,3 @@ function FeatureCard({ icon, title, children, bg }) {
     </div>
   );
 }
-

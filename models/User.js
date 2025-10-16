@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema(
     provider: String,
     providerAccountId: String,
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 UserSchema.index({ provider: 1, providerAccountId: 1 }, { unique: true });

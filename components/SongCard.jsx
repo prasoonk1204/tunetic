@@ -59,7 +59,11 @@ export default function SongCard({ song, hideUsername = false }) {
           {song.name.length > 40 ? `${song.name.slice(0, 40)}...` : song.name}
         </div>
 
-        <div className="text-[16px]">{song.artists}</div>
+        <div className="text-[16px] truncate">
+          {song.artists.length > 40
+            ? `${song.artists.slice(0, 40)}...`
+            : song.artists}
+        </div>
         <div className="text-sm truncate">
           Album:{" "}
           {song.album.length > 40

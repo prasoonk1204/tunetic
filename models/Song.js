@@ -13,12 +13,11 @@ const SongSchema = new mongoose.Schema(
           type: mongoose.Schema.Types.ObjectId,
           ref: "User",
         },
-        username: String
+        username: String,
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
-  
 
 export default mongoose.models.Song || mongoose.model("Song", SongSchema);

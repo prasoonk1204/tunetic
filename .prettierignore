@@ -1,0 +1,37 @@
+# dependencies
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# environment
+.env
+.env.*.local
+
+# build outputs
+dist
+build
+coverage
+
+# Vite specific
+.vite
+
+# system files
+.DS_Store
+.vscode
+.idea
+
+# logs
+*.log
+
+# Prettier itself
+.prettierignore
+
+# Config/build tools outputs
+*.cache
+
+# Generated files
+public/vite.svg
+
+*.md
+.next

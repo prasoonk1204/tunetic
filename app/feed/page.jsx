@@ -57,7 +57,7 @@ export default function Page() {
       });
       if (node) observer.current.observe(node);
     },
-    [loading, hasMore, page]
+    [loading, hasMore, page],
   );
 
   const addSuggestedSong = (songData) => {

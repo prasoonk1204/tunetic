@@ -29,7 +29,7 @@ export default function SuggestModal({ onClose, onSuggest }) {
     <div className="fixed inset-0 z-[1000] bg-black/50 backdrop-blur-sm pt-20 flex items-start justify-center ">
       <div
         ref={modalRef}
-        className="bg-white dark:bg-zinc-900  rounded-2xl p-6 w-full max-w-xl shadow-xl animate-modalEnter mx-4 sm:mx-0 border border-zinc-200 dark:border-zinc-700" 
+        className="bg-white dark:bg-zinc-900  rounded-2xl p-6 w-full max-w-xl shadow-xl animate-modalEnter mx-4 sm:mx-0 border border-zinc-200 dark:border-zinc-700"
       >
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold text-zinc-800 dark:text-white">

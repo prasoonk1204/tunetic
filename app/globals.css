@@ -28,7 +28,9 @@ body {
 @variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 * {
-  transition: background-color 0.3s ease, border-color 0.3s ease,
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
     color 0.3s ease;
 }
 .transition-all {
@@ -70,7 +72,6 @@ body {
     animation: modalEnter 0.3s ease-out;
   }
 
-
   @keyframes fade-in-up {
     from {
       opacity: 0;
@@ -81,9 +82,8 @@ body {
       transform: translateY(0);
     }
   }
-  
+
   .animate-fade-in-up {
     animation: fade-in-up 0.35s ease both;
   }
-  
 }
