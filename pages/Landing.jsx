@@ -7,9 +7,7 @@ import Features from "@/components/landing/Features";
 const Landing = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-white text-white flex flex-col justify-center items-center">
-      <div className="sm:p-8 w-full flex justify-center items-center">
-        <Hero />
-      </div>
+      <Hero />
       <Features />
       <Stats />
       <CTA />

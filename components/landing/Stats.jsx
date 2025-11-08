@@ -64,7 +64,7 @@ export default function Stats() {
 
   const statCards = stats && [
     {
-      title: "Active Vibers",
+      title: "Total Vibers",
       value: stats.totalUsers,
       stat: "",
       icon: <User2 height={36} width={36} />,
